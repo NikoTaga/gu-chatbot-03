@@ -22,6 +22,8 @@
         - Банковская карта
         - Платеж (Payment)
     - интерфейс функций
+
+
 ## Разворачивание проекта
 1.  Клонируем репозиторий
     git clone https://github.com/manchenkoff/gu-chatbot-03
@@ -29,8 +31,12 @@
     sudo pip install virtualenv
     Создаем окружение в папке проекта
     virtualenv venv
-    Активируем его
-    source venv/bin/activate
+    Активируем его:
+
+        source venv/bin/activate (для oc unix)
+
+        \Путь до папки проекта\project\venv\Scripts\activate.bat (для oc windows)
+
 3.  Устанавливаем зависимости
     pip install -r requirements.txt
 4.  Выполняем миграции
