@@ -44,6 +44,18 @@
     python manage.py migrate    
 
 
+##  Cоздание начального пользователя для авторизации в django-admin
+1.  Выполняем миграции
+    python manage.py makemigrations
+    python manage.py migrate 
+2.  Создаем суперюзера 
+    python manage.py createsuperuser
+3.  Запускаем сервер 
+    python manage.py runserver    
+4.  Проверка юзера
+    http://127.0.0.1:8000/admin/
+
+
 ## Задача
 
 Сделать простейший чат-бот для продажи и оплаты товаров в Одноклассниках и чате на сайте.
