@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bot',
     'shop',
+    'ecom_chatbot',
 ]
 
 MIDDLEWARE = [

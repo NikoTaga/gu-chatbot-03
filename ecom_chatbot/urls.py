@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import ecom_chatbot.views as ecom_chatbot
 
 from bot.views import jivosite_webhook, ok_webhook
 
 urlpatterns = [
+    path('', ecom_chatbot.home, name='home'),
     path('admin/', admin.site.urls),
     path('ok_webhook/', ok_webhook),
     path('jivosite_webhook/', jivosite_webhook),
