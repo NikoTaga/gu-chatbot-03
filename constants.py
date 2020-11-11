@@ -40,7 +40,7 @@ class ContentType(Enum):
     LOCATION = 'location'
     CONTACT = 'contact'
     VOICE = 'voice'
-
+    
     # Legacy: Special content types
     INLINE = 'inline'
     REMOVE = 'remove'
@@ -96,3 +96,12 @@ ORDER_STATUS_ENUM = [
 class GenericTemplateActionType(Enum):
     POSTBACK = 'postback'
     URL = 'url'
+
+
+# ----------------------------
+# Groups, accounts, tokens
+# ----------------------------
+
+OK_access_token = 'tkn14Otz2kb8KUG3dkVjSi1D7iLXiFAyovwr6RbPwcHuN0yiYDFgSan69fgeDeqw65pz9:' \
+                  'CNAFDPJGDIHBABABA'
+OK_group_name = 'gu-chatbot-03'
