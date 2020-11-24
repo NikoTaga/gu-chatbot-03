@@ -22,6 +22,6 @@ from bot.views import jivosite_webhook, ok_webhook
 urlpatterns = [
     path('', ecom_chatbot.home, name='home'),
     path('admin/', admin.site.urls),
-    path('ok_webhook/', ok_webhook),
-    path('jivosite_webhook/', jivosite_webhook),
+    # path('ok_webhook/', ok_webhook),
+    path('jivosite_webhook/gu-chatbot-03', jivosite_webhook),
 ]
