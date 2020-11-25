@@ -24,6 +24,6 @@ urlpatterns = [
     path('chat/', ecom_chatbot.chat, name='chat'),
     path('chats/', ecom_chatbot.chats, name='chats'),
     path('admin/', admin.site.urls),
-    path('ok_webhook/', ok_webhook),
-    path('jivosite_webhook/', jivosite_webhook),
+    # path('ok_webhook/', ok_webhook),
+    path('jivosite_webhook/gu-chatbot-03', jivosite_webhook),
 ]

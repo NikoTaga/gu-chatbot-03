@@ -105,3 +105,5 @@ class GenericTemplateActionType(Enum):
 OK_access_token = 'tkn14Otz2kb8KUG3dkVjSi1D7iLXiFAyovwr6RbPwcHuN0yiYDFgSan69fgeDeqw65pz9:' \
                   'CNAFDPJGDIHBABABA'
 OK_group_name = 'gu-chatbot-03'
+
+URL_JIVOSITE = 'https://bot.jivosite.com/webhooks/yo8q2mRovPJIWrp/gu-chatbot-03'
