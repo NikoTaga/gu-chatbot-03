@@ -45,6 +45,7 @@ class Product(TrackableUpdateCreateModel):
     price = MoneyField('Price', max_digits=10, decimal_places=2, blank=True, default=0.0, default_currency='RUB')
     image_url = models.URLField('Image', max_length=2047, blank=True, null=True)
     description = models.TextField('Description', blank=True, default='')
+    short_desc = models.TextField('Short description', blank=True, default='')
     is_active = models.BooleanField('Active', default=True)
     sort_order = models.PositiveIntegerField('Sort order', default=1)
 
