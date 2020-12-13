@@ -4,6 +4,7 @@ from struct_dicts import *
 from datetime import datetime
 from pprint import pprint
 
+from entities import EventCommandReceived
 
 def get_message(request) -> dict:
     '''
@@ -26,12 +27,6 @@ def get_input_data(env) -> bytes:
 
 def procces_dict_received(message):
 
-    import datetime
-    # timestamp = 1339521878.04
-    # value = datetime.datetime.fromtimestamp(timestamp)
-    # print(value.strftime('%Y-%m-%d %H:%M:%S'))
-
-
     bot_id = 10
     message_id_in_messenger = message['id']
     chat_id_in_messenger = message['chat_id']
@@ -40,7 +35,8 @@ def procces_dict_received(message):
     user_id_in_messenger = message['client_id']
     payload_text = message['message']['text']
     payload_direction = MessageDirection.RECEIVED
-    ts_in_messenger = datetime.datetime.fromtimestamp(int(message['message']['timestamp']))
+
+    ts_in_messenger = datetime.fromtimestamp(int(message['message']['timestamp']))
 
     payload = set_payload(direction=payload_direction,
                           text=payload_text)
@@ -52,29 +48,46 @@ def procces_dict_received(message):
                                user_id_in_messenger=user_id_in_messenger,
                                payload=payload,
                                message_id_in_messenger=message_id_in_messenger,
-                               ts_in_messenger=ts_in_messenger,
+                               ts_in_messenger=ts_in_messenger
                                )
     return result
 
 
+# def dd_atr(cl):
+#     d = []
+#     for att in dir(cl):
+#         if not att.startswith('_'):
+#             d.append((att, getattr(cl, att)))
+#
+#     return d
+
+
 def process_response_to_jiva(response):
-
     ts = str(datetime.today().timestamp())
+    response_dict = {}
+    mess_cont = {}
 
-    response_dict = {
-        'event': 'BOT_MESSAGE',
-        'id': 'hjghgjhg', #response['message_id_in_messenger'],
-        'client_id': response['chat_id_in_messenger'],
-        'message': {
-            'timestamp': ts,
-        },
+    response_dict['event'] = 'BOT_MESSAGE'
+    response_dict['client_id'] = response['chat_id_in_messenger']
+    response_dict['id'] = 'gfdshgsrtrs'
 
-    }
+    mess_cont['type'] = 'TEXT'
+    mess_cont['text'] = response['payload']['text']
+    mess_cont['timestamp'] = ts
 
     if response['inline_buttons']:
-        pass
+        mess_cont['type'] = 'BUTTONS'
+        mess_cont['title'] = 'title'
+        mess_cont['buttons'] = response['inline_buttons']
+
+    response_dict['message'] = mess_cont
+    # pprint(mess_cont)
+
 
     return response_dict
+
+
+
 
 
 
