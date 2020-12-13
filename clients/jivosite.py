@@ -4,6 +4,11 @@ import json
 import requests
 from constants import URL_JIVOSITE
 from pprint import pprint
+import logging
+import log.log_config
+
+
+LOG = logging.getLogger('jivo')
 
 
 class JivositeClient:
@@ -11,6 +16,9 @@ class JivositeClient:
 
     def receive_message(self, request):
         dict_from_ji = get_message(request)
+
+        LOG.debug(f'from Jivo dict {dict_from_ji}')
+
         if dict_from_ji['event'] == 'CLIENT_MESSAGE':
             message = procces_dict_received(dict_from_ji)
             return message
@@ -18,8 +26,8 @@ class JivositeClient:
     def send_message(self, payload: EventCommandToSend):
         """Отпрвка сообщения"""
         response_to_jiva = process_response_to_jiva(payload)
-        print(f'client.send_ness payload')
-        pprint(response_to_jiva)
         response = requests.post(URL_JIVOSITE, json=response_to_jiva)
-        # проверка статуса отправки. Должен быть 200
+
+        LOG.debug(f'to Jivo cod {response.status_code} dict {response_to_jiva}')
+
         print(f'Статус отправки сообщения на JivoSite {response.status_code}')

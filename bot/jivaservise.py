@@ -4,7 +4,6 @@ from struct_dicts import *
 from datetime import datetime
 from pprint import pprint
 
-from entities import EventCommandReceived
 
 def get_message(request) -> dict:
     '''
@@ -53,15 +52,6 @@ def procces_dict_received(message):
     return result
 
 
-# def dd_atr(cl):
-#     d = []
-#     for att in dir(cl):
-#         if not att.startswith('_'):
-#             d.append((att, getattr(cl, att)))
-#
-#     return d
-
-
 def process_response_to_jiva(response):
     ts = str(datetime.today().timestamp())
     response_dict = {}
@@ -81,8 +71,6 @@ def process_response_to_jiva(response):
         mess_cont['buttons'] = response['inline_buttons']
 
     response_dict['message'] = mess_cont
-    # pprint(mess_cont)
-
 
     return response_dict
 
